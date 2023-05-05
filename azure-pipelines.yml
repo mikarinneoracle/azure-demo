@@ -13,5 +13,5 @@ pool:
 steps:
 
 - script: |
-    oci os ns get --auth instance_principal
+    ./kubectl get pods
   displayName: 'oci cli test'
