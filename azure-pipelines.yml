@@ -11,7 +11,23 @@ pool:
   name: oci-win-pool
 
 steps:
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-- script: |
-    kubectl get pods
-  displayName: 'get running pods'
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(BuildConfiguration) --no-restore'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: 'test'
+    projects: |
+      tests/**/*.csproj
+      arguments: '--collect "Code coverage"
