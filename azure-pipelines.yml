@@ -13,5 +13,5 @@ pool:
 steps:
 
 - script: |
-    ./kubectl get pods
+    kubectl get pods
   displayName: 'oci cli test'
