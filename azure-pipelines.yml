@@ -14,4 +14,4 @@ steps:
 
 - script: |
     kubectl get pods
-  displayName: 'oci cli test'
+  displayName: 'get running pods'
