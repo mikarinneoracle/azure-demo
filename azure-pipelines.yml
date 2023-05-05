@@ -13,7 +13,5 @@ pool:
 steps:
 
 - script: |
-    #export OCI_CLI_AUTH=instance_principal
-    #oci os ns get
     oci os ns get --auth instance_principal
   displayName: 'oci cli test'
